@@ -1,20 +1,15 @@
-# Before `make install' is performed this script should be runnable with
-# `make test'. After `make install' it should work as `perl test.pl'
+use Test::More qw(no_plan);
 
-######################### We start with some black magic to print on failure.
+BEGIN { use_ok('Color::Spectrum',qw(generate)) }
 
-# Change 1..1 below to 1..last_test_to_print .
-# (It may become useful if the test is moved to ./t subdirectory.)
+my $color = Color::Spectrum->new();
+isa_ok($color, 'Color::Spectrum');
+can_ok($color,qw( generate ));
 
-BEGIN { $| = 1; print "1..1\n"; }
-END {print "not ok 1\n" unless $loaded;}
-use Color::Spectrum;
-$loaded = 1;
-print "ok 1\n";
+my @pcolor = generate(4,"#ffffff","#000000");
+is (@pcolor, 4, 'elements generated (exported)');
 
-######################### End of black magic.
+my @ocolor = $color->generate(4,"#ffffff","#000000");
+is (@ocolor, 4, 'elements generated (instantiated)');
 
-# Insert your test code below (better if it prints "ok 13"
-# (correspondingly "not ok 13") depending on the success of chunk 13
-# of the test code):
-
+is (eq_array(\@pcolor,\@ocolor),1,'export vs instantiation');

@@ -1,0 +1,28 @@
+NAME
+    Color::Spectrum
+
+INSTALL
+    Installation as usual:
+
+        perl Makefile.PL
+        make
+        make test
+        make install
+
+DESCRIPTION
+    See perldoc Color::Spectrum
+
+HISTORY
+	1.02 - Added tests and readme file
+	1.00 - Initial release
+
+AUTHOR
+    Mark Mills <extremely@hostile.org>
+
+MAINTAINER
+    Jeffrey Hayes Anderson <captvanhalen@yahoo.com>
+
+COPYRIGHT
+    Copyright (c) 2003 Mark Mills.
+	See source POD for additional copyright information.
+

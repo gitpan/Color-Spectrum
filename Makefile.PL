@@ -3,6 +3,6 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'Color::Spectrum',
-    'VERSION_FROM'	=> 'Spectrum.pm', # finds $VERSION
-    'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+    'VERSION_FROM'	=> 'Spectrum.pm',
+    'PREREQ_PM'		=> {Test::More => '0.47'},
 );
