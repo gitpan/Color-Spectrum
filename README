@@ -13,16 +13,16 @@ DESCRIPTION
     See perldoc Color::Spectrum
 
 HISTORY
+	1.04 - doc updates
 	1.02 - Added tests and readme file
 	1.00 - Initial release
 
 AUTHOR
-    Mark Mills <extremely@hostile.org>
+    Mark Mills
 
 MAINTAINER
-    Jeffrey Hayes Anderson <captvanhalen@yahoo.com>
+    Jeffrey Hayes Anderson
 
 COPYRIGHT
-    Copyright (c) 2003 Mark Mills.
+    Copyright (c) 2004 Mark Mills.
 	See source POD for additional copyright information.
-

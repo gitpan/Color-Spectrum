@@ -8,8 +8,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
 require Exporter;
 @ISA = qw(Exporter AutoLoader);
 @EXPORT = qw(generate rgb2hsi hsi2rgb);
-$VERSION = '1.02';
-
+$VERSION = '1.04';
 
 sub new {
 	my $class = shift;
@@ -141,17 +140,30 @@ It can shade from dark to light, from saturated to dull, and around the spectrum
 
 This method returns a list of size $elements which contains web colors starting from $start_color and ranging to $end_color.
 
+=head1 BUGS
+
+If you have found a bug, typo, etc. please visit Best Practical Solution's
+CPAN bug tracker at http://rt.cpan.org:
+
+E<lt>http://rt.cpan.org/NoAuth/Bugs.html?Dist=Color-SpectrumE<gt>
+
+or send mail to E<lt>bug-Color-Spectrum#rt.cpan.orgE<gt>
+
+(you got this far ... you can figure out how to make that
+a valid address ... and note that i won't respond to bugs
+sent to my personal address any longer)
+
 =head1 AUTHOR
 
-Mark Mills <extremely@hostile.org>
+Mark Mills
 
 =head1 MAINTAINANCE
 
-This package is maintained by Jeffrey Hayes Anderson <captvanhalen@yahoo.com>
+This package is maintained by Jeffrey Hayes Anderson
 
 =head1 COPYRIGHT
 
-Copyright (c) 2003 Mark Mills.
+Copyright (c) 2004 Mark Mills.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
