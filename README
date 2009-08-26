@@ -13,6 +13,7 @@ DESCRIPTION
     See perldoc Color::Spectrum
 
 HISTORY
+	1.06 - bux fixes, doc updates
 	1.04 - doc updates
 	1.02 - Added tests and readme file
 	1.00 - Initial release
@@ -24,5 +25,5 @@ MAINTAINER
     Jeffrey Hayes Anderson
 
 COPYRIGHT
-    Copyright (c) 2004 Mark Mills.
+    Copyright (c) 2009 Mark Mills.
 	See source POD for additional copyright information.

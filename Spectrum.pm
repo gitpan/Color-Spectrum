@@ -8,7 +8,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
 require Exporter;
 @ISA = qw(Exporter AutoLoader);
 @EXPORT = qw(generate rgb2hsi hsi2rgb);
-$VERSION = '1.05';
+$VERSION = '1.06';
 
 sub new {
 	my $class = shift;
@@ -126,7 +126,7 @@ Color::Spectrum - Generate spectrums of web colors
 
 =head1 DESCRIPTION
 
-From the author, Mark Mills: "This is a rewrite of a script I wrote 4 years ago to make spectrums of colors for web page table tags.  It uses a real simple geometric conversion that gets the job done.
+From the author, Mark Mills: "This is a rewrite of a script I wrote [around 1999] to make spectrums of colors for web page table tags.  It uses a real simple geometric conversion that gets the job done.
 
 It can shade from dark to light, from saturated to dull, and around the spectrum all at the same time. It can go thru the spectrum in either direction."
 
@@ -152,8 +152,7 @@ This method returns a list of size $elements which contains web colors starting 
 
 =head1 About Muliple Color Spectrums
 
-Just call generate() more than once. If you want expand from one color to the next, and then back to the original color then
-simply reuse the returned array (minus the last element if you don't want the repeated color):
+Just call generate() more than once. If you want expand from one color to the next, and then back to the original color then simply reuse the returned array (minus the last element if you don't want the repeated color):
 
 =over 4
 
@@ -163,8 +162,7 @@ simply reuse the returned array (minus the last element if you don't want the re
 
 =back
 
-If you want to expand from one color to the next, and then to yet another color, simply stack calls to generate() and take
-care to remove the repeated color each time:
+If you want to expand from one color to the next, and then to yet another color, simply stack calls to generate() and take care to remove the repeated color each time:
 
 =over 4
 
@@ -175,18 +173,17 @@ care to remove the repeated color each time:
 
 =back
 
+=head1 SEE ALSO
+
+B<Color::Spectrum::Multi> - If you do not feel comfortable working with array slices, then you can instead use this subclass to generate your multi colored spectrums.
+
 =head1 BUGS
 
-If you have found a bug, typo, etc. please visit Best Practical Solution's
-CPAN bug tracker at http://rt.cpan.org:
+If you have found a bug, typo, etc. please visit Best Practical Solution's CPAN bug tracker at http://rt.cpan.org:
 
-E<lt>http://rt.cpan.org/NoAuth/Bugs.html?Dist=Color-SpectrumE<gt>
+B<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Color-Spectrum>
 
-or send mail to E<lt>bug-Color-Spectrum#rt.cpan.orgE<gt>
-
-(you got this far ... you can figure out how to make that
-a valid address ... and note that i won't respond to bugs
-sent to my personal address any longer)
+or send mail to B<bug-Color-Spectrum@rt.cpan.org>
 
 =head1 AUTHOR
 
