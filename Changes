@@ -1,6 +1,12 @@
 Revision history for Perl extension Color::Spectrum.
 
-1.02  Jan 02 2004 
+1.05  Aug 25 2009 
+	- bug fixes, doc updates
+
+1.04  Jan 02 2004 
+	- doc updates
+
+1.03  Jan 02 2004 
 	- doc updates
 
 1.02  Jul 25 2003 

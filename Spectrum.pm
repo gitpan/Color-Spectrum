@@ -34,8 +34,8 @@ sub generate {
 	$clockwise++ if ( $cnt < 0 );
 	$cnt = int( abs( $cnt ) );
 
-	return ( wantarray() ? @murtceps : \@murtceps ) if $cnt == 1;
-	return ( wantarray() ? ($col1, $col2) : [$col1, $col2] ) if $cnt == 2;
+	return ( wantarray() ? @murtceps : \@murtceps ) if $cnt <= 1;
+	return ( wantarray() ? ("#$col1", "#$col2") : ["#$col1", "#$col2"] ) if $cnt == 2;
 
 	# The RGB values need to be on the decimal scale,
 	# so we divide em by 255 enpassant.
@@ -111,20 +111,24 @@ Color::Spectrum - Generate spectrums of web colors
 
 =head1 SYNOPSIS
 
-  # Procedural interface:
-  use Color::Spectrum qw(generate);
-  my @color = generate(10,'#000000','#FFFFFF');
+=over 4
 
-  # OO interface:
-  use Color::Spectrum;
-  my $spectrum = Color::Spectrum->new();
-  my @color = $spectrum->generate(10,'#000000','#FFFFFF');
+ # Procedural interface:
+ use Color::Spectrum qw(generate);
+ my @color = generate(10,'#000000','#FFFFFF');
+
+ # OO interface:
+ use Color::Spectrum;
+ my $spectrum = Color::Spectrum->new();
+ my @color = $spectrum->generate(10,'#000000','#FFFFFF');
+
+=back
 
 =head1 DESCRIPTION
 
-This is a rewrite of a script I wrote 4 years ago to make spectrums of colors for web page table tags.  It uses a real simple geometric conversion that gets the job done.
+From the author, Mark Mills: "This is a rewrite of a script I wrote 4 years ago to make spectrums of colors for web page table tags.  It uses a real simple geometric conversion that gets the job done.
 
-It can shade from dark to light, from saturated to dull, and around the spectrum all at the same time. It can go thru the spectrum in either direction.
+It can shade from dark to light, from saturated to dull, and around the spectrum all at the same time. It can go thru the spectrum in either direction."
 
 =head1 METHODS
 
@@ -132,13 +136,44 @@ It can shade from dark to light, from saturated to dull, and around the spectrum
 
 =item B<generate>
 
-  # Procedural interface:
-  @list = generate($elements,$start_color,$end_color);
-
-  # OO interface:
-  @list = $spectrum->generate($elements,$start_color,$end_color);
-
 This method returns a list of size $elements which contains web colors starting from $start_color and ranging to $end_color.
+
+=over 4
+
+ # Procedural interface:
+ @list = generate($elements,$start_color,$end_color);
+
+ # OO interface:
+ @list = $spectrum->generate($elements,$start_color,$end_color);
+
+=back
+
+=back
+
+=head1 About Muliple Color Spectrums
+
+Just call generate() more than once. If you want expand from one color to the next, and then back to the original color then
+simply reuse the returned array (minus the last element if you don't want the repeated color):
+
+=over 4
+
+ my @color = $spectrum->generate(4,'#000000','#FFFFFF');
+
+ print for @color, (reverse @color)[1..$#color];
+
+=back
+
+If you want to expand from one color to the next, and then to yet another color, simply stack calls to generate() and take
+care to remove the repeated color each time:
+
+=over 4
+
+ my @color = (
+    $spectrum->generate(13,'#FF0000','#00FF00'),
+    ($spectrum->generate(13,'#00FF00','#0000FF'))[1..12],
+ );
+
+=back
 
 =head1 BUGS
 
@@ -163,7 +198,7 @@ This package is maintained by Jeffrey Hayes Anderson
 
 =head1 COPYRIGHT
 
-Copyright (c) 2004 Mark Mills.
+Copyright (c) 2009 Mark Mills.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
